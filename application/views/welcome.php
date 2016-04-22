@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <li class="active"><a href="#">Home</a></li>
                                     <li><a href="#">Features</a></li>
                                     <li><a href="#">Contact</a></li>
-                                    <li><a href="<?php echo base_url().'dineout/login'; ?>">Join Us</a></li>
+                                    <li><a href="<?php echo base_url().'user'; ?>">Join Us</a></li>
                                 </ul>
                             </nav>
                         </div>

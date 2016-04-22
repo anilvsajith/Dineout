@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <div class="etc-login-form">
-                                <p>already have an account? <a href="<?php echo base_url().'dineout/login'; ?>">login here</a></p>
+                                <p>already have an account? <a href="<?php echo base_url().'user'; ?>">login here</a></p>
                             </div>
                         </form>
                         <button id="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>

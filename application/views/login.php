@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="login-form">
                         <h1 class="cover-heading">Welcome Back!</h1>
-                        <form id="login-form" class="text-left" method="post" action="<?php echo base_url().'dineout/login_form'; ?>">
+                        <form id="login-form" class="text-left" method="post" action="<?php echo base_url().'user/login'; ?>">
                             <div class="login-form-main-message"></div>
                             <div class="main-login-form">
                                 <div class="login-group">
@@ -53,8 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
                             </div>
                             <div class="etc-login-form">
-                                <p>Forgot Your Password? <a href="<?php echo base_url().'dineout/forgot'?>">Click Here</a></p>
-                                <p>New User? <a href="<?php echo base_url().'dineout/sign_up'?>">Join Us Now!</a></p>
+                                <p>Forgot Your Password? <a href="<?php echo base_url().'user/forgot'?>">Click Here</a></p>
+                                <p>New User? <a href="<?php echo base_url().'user/sign_up'?>">Join Us Now!</a></p>
                             </div>
                         </form>
                         <button id="submit" form="login-form" class="login-button"><i class="fa fa-chevron-right"></i></button>

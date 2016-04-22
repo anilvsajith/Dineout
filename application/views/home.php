@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li><a href="<?php echo base_url().'dineout/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                        <li><a href="<?php echo base_url().'user/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                         <li>
                             <a href="#" style="height:54px;">
                                 <span style="font-style:italic;">Welcome</span>, Balram Menon&nbsp;

@@ -48,8 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <button type="submit" class="login-button" style="margin-right:0px;"><i class="fa fa-chevron-right"></i></button>
                             </div>
                             <div class="etc-login-form">
-                                <p>already have an account? <a href="<?php echo base_url().'dineout/login'; ?>">login here</a></p>
-                                <p>new user? <a href="<?php echo base_url().'dineout/sign_up'; ?>">create new account</a></p>
+                                <p>already have an account? <a href="<?php echo base_url().'user'; ?>">login here</a></p>
+                                <p>new user? <a href="<?php echo base_url().'user/sign_up'; ?>">create new account</a></p>
                             </div>
                         </form>
                     </div>
