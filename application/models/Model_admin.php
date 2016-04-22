@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_admin extends CI_Model {
     
+    
     public function login()
     {
         $query = $this->db->get_where('admin', array('username' => $this->input->post('lg_username') , 'password' => $this->input->post('lg_password')));
