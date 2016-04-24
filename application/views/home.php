@@ -74,8 +74,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <button class="btn btn-default" aria-haspopup="true" aria-expanded="false" type="button" style="height:60px;font-size:18px;font-weight: 800;"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;&nbsp;Hotels</button>
                         </span>
                         <form id="search" method="post" action="<?php echo base_url().'user/search'; ?>">
-                        <input type="text" class="form-control" placeholder="Time" style="height:60px;font-size:18px;font-weight: 800;width:30%;">
-                        <input type="text" class="form-control" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
+                        <select class="form-control" id="" placeholder="Time" style="height:60px;font-size:18px;font-weight: 800;width:30%;">
+                            <option>Breakfast</option>
+                            <option>Lunch</option>
+                            <option>Dinner</option>
+                            <option>Breaks</option>
+                        </select>
+                        <select class="form-control" id="" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
+                            <option>Veg</option>
+                            <option>Non-Veg</option>
+                            <option>Both</option>
+                            <option>Egg</option>
+                        </select>
                         <input type="text" id="searchTextField" class="form-control" placeholder="Location" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
                         <input type="hidden" id="Loc" name="Loc" />     
                         <input type="hidden" id="Loclat" name="Loclat" />
