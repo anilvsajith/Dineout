@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="login-form">
                         <h1 class="cover-heading">Join Now!</h1>
-                        <form id="register-form" class="text-left" method="post" action="">
+                        <form id="register-form" class="text-left" method="post" action="<?php echo base_url().'user/signup_submit';?>">
                             <div class="login-form-main-message"></div>
                             <div class="main-login-form">
                                 <div class="login-group">
@@ -57,12 +57,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="reg_fullname" class="sr-only">Full Name</label>
                                         <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
                                     </div>
-                                    <div class="form-group login-group-checkbox">
-                                        <input type="radio" class="" name="reg_gender" id="male" value="male" placeholder="username">
-                                        <label for="male">male</label>
-                                        <input type="radio" class="" name="reg_gender" id="female" value="female" placeholder="username">
-                                        <label for="female">female</label>
+                                    <div class="form-group">
+                                        <label for="reg_mobile" class="sr-only">Phone</label>
+                                        <input type="text" class="form-control" id="reg_mobile" name="reg_mobile" placeholder="Phone number">
                                     </div>
+                          
                                     <div class="form-group login-group-checkbox">
                                         <input type="checkbox" class="" id="reg_agree" name="reg_agree">
                                         <label for="reg_agree">i agree with <a href="#">terms</a></label>
