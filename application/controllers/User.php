@@ -19,7 +19,7 @@ class User extends CI_Controller {
         if($this->model_admin->login())
                 redirect('user');
         else
-                redirect('blah');
+                redirect('user/dash');
     }
     
     public function sign_up()
@@ -39,5 +39,10 @@ class User extends CI_Controller {
     public function forgot()
     {
         $this->load->view('forgot_pass');
+    }
+
+    public function dash()
+    {
+        $this->load->view('home');
     }
 }
