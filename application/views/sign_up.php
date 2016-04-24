@@ -37,9 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="login-form-main-message"></div>
                             <div class="main-login-form">
                                 <div class="login-group">
-                                    <div class="form-group">
-                                        <label for="reg_username" class="sr-only">Email address</label>
-                                        <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+                                     <div class="form-group">
+                                        <label for="reg_fullname" class="sr-only">Full Name</label>
+                                        <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
                                     </div>
                                     <div class="form-group">
                                         <label for="reg_password" class="sr-only">Password</label>
@@ -53,10 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <label for="reg_email" class="sr-only">Email</label>
                                         <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="reg_fullname" class="sr-only">Full Name</label>
-                                        <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-                                    </div>
+                                   
                                     <div class="form-group">
                                         <label for="reg_mobile" class="sr-only">Phone</label>
                                         <input type="text" class="form-control" id="reg_mobile" name="reg_mobile" placeholder="Phone number">
@@ -71,8 +68,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="etc-login-form">
                                 <p>already have an account? <a href="<?php echo base_url().'user'; ?>">login here</a></p>
                             </div>
+                             <button id="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                         </form>
-                        <button id="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                       
                     </div>
                     <div class="mastfoot">
                         <div class="inner">

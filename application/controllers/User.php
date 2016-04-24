@@ -34,15 +34,15 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('reg_fullname', 'Username', 'trim|required');
         $this->form_validation->set_rules('reg_password', 'Password', 'trim|required');
         $this->form_validation->set_rules('reg_password_confirm', 'Password confirm', 'trim|required|matches[reg_password]');
-        $this->form_validation->set_rules('reg_username', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('reg_email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('reg_mobile', 'Mobile', 'trim|required|numeric');
         if ($this->form_validation->run() ==FALSE) {
-            $this->load->view('login');
+            $this->load->view('sign_up');
             
         }else {
             $this->load->model('model_user');
             if($this->model_user->signup()) {
-                $this->load->view('success');
+                $this->load->view('login');
             }
 
             
