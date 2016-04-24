@@ -71,20 +71,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-8">
                     <div class="input-group">
                         <span class="input-group-btn">
-                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" style="height:60px;font-size:18px;font-weight: 800;"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;&nbsp;Cochin</button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
+                            <button class="btn btn-default" aria-haspopup="true" aria-expanded="false" type="button" style="height:60px;font-size:18px;font-weight: 800;"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;&nbsp;Hotels</button>
                         </span>
+                        <form id="search" method="post" action="<?php echo base_url().'user/search'; ?>">
                         <input type="text" class="form-control" placeholder="Time" style="height:60px;font-size:18px;font-weight: 800;width:30%;">
                         <input type="text" class="form-control" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
-                        <input type="text" class="form-control" placeholder="Location" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
+                        <input type="text" id="searchTextField" class="form-control" placeholder="Location" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
+                        <input type="hidden" id="Loc" name="Loc" />     
+                        <input type="hidden" id="Loclat" name="Loclat" />
+                        <input type="hidden" id="Loclng" name="Loclng" /> 
+                        </form>
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" style="height:60px;font-size:18px;font-weight: 800;">&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button>
+                            <button class="btn btn-default" form="search" type="button" style="height:60px;font-size:18px;font-weight: 800;">&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button>
                         </span>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
@@ -194,6 +192,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/isotope.pkgd.min.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/packery-mode.pkgd.min.js'></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            function initialize() {
+                var input = document.getElementById('searchTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+                google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                    var place = autocomplete.getPlace();
+                    document.getElementById('Loc').value = place.name;
+                    document.getElementById('Loclat').value = place.geometry.location.lat();
+                    document.getElementById('Loclng').value = place.geometry.location.lng();
+                    //alert("This function is working!");
+                    //alert(place.name);
+                    
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize); 
+        </script>
         <script>
             $(document).ready( function() {  
                 $('.isotope').isotope({
