@@ -19,7 +19,7 @@ class User extends CI_Controller {
         if($this->model_admin->login())
                 redirect('user');
         else
-                redirect('user/dash');
+                redirect('blah');
     }
     
     public function sign_up()
