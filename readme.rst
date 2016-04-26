@@ -20,4 +20,4 @@ issues, as well as missing features.
 Acknowledgement
 ***************
 
-The Dineout team would like to thank mini project in charge Ahammed Siraj K K for giving us an opportunity to do this project. We would also like to thank our guide Nimi Prakash P for giving us proper guidance during each phase of the project.We also thank Sajeena Shaji for her immense support and guidance.
+The Dineout team would like to thank our mini project in charge Ahammed Siraj K K for giving us an opportunity to do this project. We would also like to thank our guide Nimi Prakash P for giving us proper guidance during each phase of the project.We also thank Sajeena Shaji for her immense support and guidance.
