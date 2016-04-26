@@ -5,8 +5,11 @@ class User extends CI_Controller {
 
     public function index()
     {
-        if($this->session->userdata('admin_status'))
-            $this->load->view('home');
+        $data['userdata'] = $this->session->userdata;
+        if($this->session->userdata('user_status'))
+            $this->load->view('home',$data);
+        else if($this->session->userdata('admin_status'))
+            redirect('admin');
         else
             $this->load->view('login');         
     }
@@ -15,8 +18,8 @@ class User extends CI_Controller {
     
     public function login()
     {
-        $this->load->model('model_admin');
-        if($this->model_admin->login())
+        $this->load->model('model_user');
+        if($this->model_user->login())
                 redirect('user');
         else
                 redirect('blah');
@@ -24,8 +27,10 @@ class User extends CI_Controller {
     
     public function sign_up()
     {
-        if($this->session->userdata('admin_status'))
-            $this->load->view('home');
+        if($this->session->userdata('user_status'))
+            redirect('user');
+        else if($this->session->userdata('admin_status'))
+            redirect('admin');
         else
             $this->load->view('sign_up');
     }
