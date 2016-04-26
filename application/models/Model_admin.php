@@ -5,7 +5,7 @@ class Model_admin extends CI_Model {
     
     public function login()
     {
-        $query = $this->db->get_where('admin', array('username' => $this->input->post('lg_username') , 'password' => $this->input->post('lg_password')));
+        $query = $this->db->get_where('admin', array('email' => $this->input->post('lg_username') , 'password' => $this->input->post('lg_password')));
         
         if($query->num_rows()==1){
             $row= $query->row();
@@ -29,6 +29,13 @@ class Model_admin extends CI_Model {
             return true;
         return false;
     }
+    
+    public function signup() {
+          $admin=1;
+		  if($this->db->insert('admin', array('name' => $this->input->post('reg_fullname'),'password' => $this->input->post('reg_password'),'email' => $this->input->post('reg_email'),'phone' => $this->input->post('reg_mobile'),'admin' => $admin)))
+            return true;
+        return false;
+	}
 
 
 }

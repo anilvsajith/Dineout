@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a href="<?php echo base_url().'user/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                         <li>
                             <a href="#" style="height:54px;">
-                                <span style="font-style:italic;">Welcome</span>, Balram Menon&nbsp;
+                                <span style="font-style:italic;">Welcome</span>, <?php echo $userdata['user_name'];?>&nbsp;
                                 <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="35" style="margin-top:-6px;" class="img-circle">
                             </a>
                         </li>
