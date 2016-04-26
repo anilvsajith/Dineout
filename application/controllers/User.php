@@ -22,7 +22,7 @@ class User extends CI_Controller {
         if($this->model_user->login())
                 redirect('user');
         else
-                redirect('blah');
+                redirect('user');
     }
     
     public function sign_up()

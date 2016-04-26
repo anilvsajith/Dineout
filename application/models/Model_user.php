@@ -5,7 +5,8 @@ class Model_user extends CI_Model {
 
 	public function login()
     {
-        $query = $this->db->get_where('admin', array('email' => $this->input->post('lg_username') , 'password' => $this->input->post('lg_password')));
+        $admin=0;
+        $query = $this->db->get_where('admin', array('email' => $this->input->post('lg_username') , 'password' => $this->input->post('lg_password'), 'admin' => $admin));
         
         if($query->num_rows()==1){
             $row= $query->row();

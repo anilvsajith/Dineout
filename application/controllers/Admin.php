@@ -20,7 +20,7 @@ class Admin extends CI_Controller {
         if($this->model_admin->login())
                 redirect('admin');
         else
-                redirect('error404');
+                redirect('admin');
     }
     
     public function sign_up()
@@ -62,7 +62,8 @@ class Admin extends CI_Controller {
     
     public function add_hotel()
     {
-        $this->load->view('admin_add_hotel');
+        $data['userdata'] = $this->session->userdata;
+        $this->load->view('admin_add_hotel',$data);
     }
     
     public function input_hotel()
@@ -70,11 +71,11 @@ class Admin extends CI_Controller {
         $this->load->model('model_admin');
         if($this->model_admin->add_hotel())
         {
-            redirect('user');
+            redirect('admin/add_hotel');
         }
         else
         {
-            redirect('lol');
+            redirect('admin');
         }
     }
     

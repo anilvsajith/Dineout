@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li><a href="#">Hotel 2</a></li>
                                 <li><a href="#">Hotel 3</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="<?php echo base_url();?>/admin/add_hotel">Add New</a></li>
+                                <li><a href="<?php echo base_url();?>admin/add_hotel">Add New</a></li>
                             </ul>
                         </li>
                     </ul>

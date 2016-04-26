@@ -43,10 +43,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                        <li><a href="<?php echo base_url().'user/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                         <li>
                             <a href="#" style="height:54px;">
-                                <span style="font-style:italic;">Welcome</span>, Balram Menon&nbsp;
+                                <span style="font-style:italic;">Welcome</span>, <?php echo $userdata['admin_name'];?>&nbsp;
                                 <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="35" style="margin-top:-6px;" class="img-circle">
                             </a>
                         </li>
@@ -75,46 +75,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="caption">
                             <h3>Main Info: </h3>
                             <div class="row">
-                                <form>
+                                <form method="post" action="<?php echo base_url().'admin/input_hotel';?>">
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-cutlery"></span></span>
-                                        <input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="hotelname" placeholder="Name" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                             
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg" style="">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
-                                        <input type="text" class="form-control" placeholder="Location" aria-describedby="sizing-addon1">
+                                        <input type="text" id="searchTextField" class="form-control" placeholder="Location" aria-describedby="sizing-addon1">
+                                        
                                     </div>
                                 </div>
                                 <br><br><br>
                                 <div class="col-lg-12">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-road"></span></span>
-                                        <input type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="hoteladdr" placeholder="Address" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                                 <br><br><br>
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
-                                        <input type="text" class="form-control" placeholder="Opening Time" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="topen" placeholder="Opening Time" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                                 
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
-                                        <input type="text" class="form-control" placeholder="Closing Time" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="tclose" placeholder="Closing Time" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                                 <br><br><br>
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-apple"></span></span>
-                                        <select class="form-control" id="" placeholder="Veg or NonVeg" style="">
+                                        <select class="form-control" id="" name="hoteltype" placeholder="Veg or NonVeg" style="">
                                             <option>Veg</option>
                                             <option>Non-Veg</option>
                                             <option>Both</option>
@@ -126,23 +127,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-phone"></span></span>
-                                        <input type="text" class="form-control" placeholder="Phone No" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="hotelphn" placeholder="Phone No" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                                 <br><br><br>
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
-                                        <input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+                                        <input type="email" class="form-control" name="hotelemail" placeholder="Email" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
                                 
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-globe"></span></span>
-                                        <input type="text" class="form-control" placeholder="Website" aria-describedby="sizing-addon1">
+                                        <input type="text" class="form-control" name="hotelweb" placeholder="Website" aria-describedby="sizing-addon1">
                                     </div>
                                 </div>
+                                <input type="hidden" id="Loclat" name="hotellat" />
+                                <input type="hidden" id="Loclng" name="hotellng" />
                                 <br><br><br>
                                 <div class="col-lg-6">
                                     <div class="fileUpload btn btn-primary">
@@ -176,6 +179,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/isotope.pkgd.min.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/packery-mode.pkgd.min.js'></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKwGo0vPZC0HUDBMTB-FI-tHx-bc4cQ0U&libraries=places" type="text/javascript"></script>
+        <script type="text/javascript">
+            function initialize() {
+                var input = document.getElementById('searchTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+                google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                    var place = autocomplete.getPlace();
+                    document.getElementById('Loclat').value = place.geometry.location.lat();
+                    document.getElementById('Loclng').value = place.geometry.location.lng();            
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize); 
+        </script>
         <script>
             $(document).ready( function() {  
                 $('.isotope').isotope({
