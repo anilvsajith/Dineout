@@ -58,9 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container">
                 <div class="row" style="padding-top:150px;">
                     <div class="col-lg-4">
-                        <h4 style="font-size:45px;color:#fff;">Pai Dosa fast food</h4>
-                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;Artist. Entrepreneur. Foodie.</h6>
-                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
+                        <h4 style="font-size:45px;color:#fff;">Add New Hotel</h4>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4" style="text-align:right;">
@@ -73,10 +71,94 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row isotope">
                 
                 <div class="col-sm-6 col-md-12 feeds">
-                    <div class="thumbnail" style="height:350px;">
+                    <div class="thumbnail" style="min-height:350px;">
                         <div class="caption">
-                            <h3>Analytics: </h3>
+                            <h3>Main Info: </h3>
+                            <div class="row">
+                                <form>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-cutlery"></span></span>
+                                        <input type="text" class="form-control" placeholder="Name" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
                             
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg" style="">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-map-marker"></span></span>
+                                        <input type="text" class="form-control" placeholder="Location" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-12">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-road"></span></span>
+                                        <input type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
+                                        <input type="text" class="form-control" placeholder="Opening Time" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-clock-o"></i></span>
+                                        <input type="text" class="form-control" placeholder="Closing Time" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-apple"></span></span>
+                                        <select class="form-control" id="" placeholder="Veg or NonVeg" style="">
+                                            <option>Veg</option>
+                                            <option>Non-Veg</option>
+                                            <option>Both</option>
+                                            <option>Egg</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-phone"></span></span>
+                                        <input type="text" class="form-control" placeholder="Phone No" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-envelope"></span></span>
+                                        <input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-globe"></span></span>
+                                        <input type="text" class="form-control" placeholder="Website" aria-describedby="sizing-addon1">
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-6">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Upload Cover Image</span>
+                                        <input type="file" class="upload" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6" style="text-align:right;">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Add this hotel</span>
+                                        <input type="submit" class="upload" />
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
