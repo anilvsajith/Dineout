@@ -59,6 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row" style="padding-top:150px;">
                     <div class="col-lg-4">
                         <h4 style="font-size:45px;color:#fff;">Pai Dosa fast food</h4>
+                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;Artist. Entrepreneur. Foodie.</h6>
+                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4" style="text-align:right;">

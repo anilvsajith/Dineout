@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li><a href="#">Hotel 2</a></li>
                                 <li><a href="#">Hotel 3</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="<?php echo base_url();?>/admin/add_hotel">Add New</a></li>
+                                <li><a href="#">Add New</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -56,16 +56,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div class="topbg">
             <div class="container">
-                <div class="row" style="padding-top:55px;">
-                    <div class="col-lg-3">
-                        <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="240" class="img-circle">
-                    </div>
-                    <div class="col-lg-4" style="padding-top:50px;">
-                        <h4 style="font-size:45px;color:#fff;">John Doe</h4>
+                <div class="row" style="padding-top:150px;">
+                    <div class="col-lg-4">
+                        <h4 style="font-size:45px;color:#fff;">Pai Dosa fast food</h4>
                         <h6 style="font-size:25px;color:#fff;"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;Artist. Entrepreneur. Foodie.</h6>
                         <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
                     </div>
+                    <div class="col-lg-4"></div>
                     <div class="col-lg-4" style="text-align:right;">
+                        
                     </div>
                 </div>
             </div>
@@ -73,28 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="cards container">
             <div class="row isotope">
                 
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <a href="<?php echo base_url();?>admin/hotel/1">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
+                <div class="col-sm-6 col-md-12 feeds">
+                    <div class="thumbnail" style="height:350px;">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in</p>
-                        </div></a>
+                            <h3>Analytics: </h3>
+                            
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <a href="#">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in</p>
-                        </div></a>
-                    </div>
-                </div>
-                                
             </div>    
             
         </div>

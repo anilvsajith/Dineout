@@ -25,6 +25,11 @@ class Admin extends CI_Controller {
         $this->load->view('admin_hotel');
     }
     
+    public function add_hotel()
+    {
+        $this->load->view('admin_add_hotel');
+    }
+    
     public function input_hotel()
     {
         $this->load->model('model_admin');
