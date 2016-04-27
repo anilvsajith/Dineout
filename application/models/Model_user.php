@@ -44,6 +44,7 @@ class Model_user extends CI_Model {
         }
         else
         {
+        $rate_mark= ($row->rating)/2.0; 
         $dist_mark=75000.0/($data1[$i]['dist']);
         }
         $mark[$i]=array('id' => $row->id, 'value' => ($rate_mark + $dist_mark), 'rating' => $row->rating, 'dist' => $data1[$i]['dist']);
