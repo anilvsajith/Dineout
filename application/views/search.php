@@ -10,7 +10,7 @@
         <title>Dineout | Alpha</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <!--bootstrap CSS-->
-        <link href="<?php echo base_url();?>assets/<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo base_url();?>assets/css/search.css" rel="stylesheet">
     </head>
         <body>
@@ -24,25 +24,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dine Out</a>
+                    <a class="navbar-brand" href="<?php echo base_url().'user';?>">Dine Out</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -54,11 +42,10 @@
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </a>
                         </li>
-                        <li><a href="../navbar-static-top/"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                        <li><a href="<?php echo base_url().'user/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                         <li>
                             <a href="#" style="height:54px;">
-                                <span style="font-style:italic;">Welcome</span>, Balram Menon&nbsp;
-                                <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="35" style="margin-top:-6px;" class="img-circle">
+                                <span style="font-style:italic;">Welcome</span>, <?php echo $userdata['user_name'];?>&nbsp;
                                 <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="35" style="margin-top:-6px;" class="img-circle">
                             </a>
                         </li>
@@ -79,10 +66,10 @@
                                 Sort By <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Top Rated</a></li>
-                                <li><a href="#">Closer to Me</a></li>
+                                <li><a id="r" href="#">Top Rated</a></li>
+                                <li><a id="d" href="#">Closer to Me</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Best ones near Me</a></li>
+                                <li><a id="b" href="#">Best ones near Me</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,93 +78,64 @@
         </div>
         <div class="cards container">
             <div class="row isotope">
-                
+                <div id="best">
+                <?php 
+                    $i=0;
+                    while($hotel_best[$i])
+                    {
+                    echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
+                        <a href="'.base_url().'admin/hotel/'.($i+1).'">
+                        <img src="'.base_url().'assets/uploads/'.$hotel_best[$i]['image'].'" alt="image">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
+                            <h3>'.$hotel_best[$i]['name'].'</h3>
+                        </div></a>
                     </div>
+                </div>';
+                    $i++;
+                    }
+                ?>
                 </div>
                 
+                <div id="dist" style="display:none;">
+                <?php 
+                    $j=0;
+                    while($hotel_dist[$j])
+                    {
+                    echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic6.jpg" alt="image">
+                        <a href="'.base_url().'admin/hotel/'.($j+1).'">
+                        <img src="'.base_url().'assets/uploads/'.$hotel_dist[$j]['image'].'" alt="image">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
+                            <h3>'.$hotel_dist[$j]['name'].'</h3>
+                        </div></a>
                     </div>
+                </div>';
+                    $j++;
+                    }
+                ?>
                 </div>
                 
+                <div id="rating" style="display:none;">
+                <?php 
+                    $k=0;
+                    while($hotel_rating[$k])
+                    {
+                    echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
+                        <a href="'.base_url().'admin/hotel/'.($k+1).'">
+                        <img src="'.base_url().'assets/uploads/'.$hotel_rating[$k]['image'].'" alt="image">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
+                            <h3>'.$hotel_rating[$k]['name'].'</h3>
+                        </div></a>
                     </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic6.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
+                </div>';
+                    $k++;
+                    }
+                ?>
                 </div>
                 
             </div>    
@@ -194,14 +152,33 @@
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/packery-mode.pkgd.min.js'></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
         <script>
+            $(document).ready(function(){
+                $("#r").click(function(){
+                    $("#rating").fadeIn("slow");
+                    $("#best").hide();
+                    $("#dist").hide();
+                });
+                $("#b").click(function(){
+                    $("#rating").hide();
+                    $("#best").fadeIn("slow");
+                    $("#dist").hide();
+                });
+                $("#d").click(function(){
+                    $("#rating").hide();
+                    $("#best").hide();
+                    $("#dist").fadeIn("slow");
+                });
+            });
+        </script>
+        <script>
             $(document).ready( function() {  
-                $('.isotope').isotope({
+                /*$('.isotope').isotope({
                     layoutMode: 'packery',
                     itemSelector: '.feeds',
                     packery: {
                         gutter: 0
                     }
-                });
+                });*/
                 $("body").niceScroll({
                     scrollspeed: 75,
                     mousescrollstep: 40,

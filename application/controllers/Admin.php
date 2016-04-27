@@ -4,10 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
     
     public function index()
-    {
-        $data['userdata'] = $this->session->userdata; 
+    {    
         if($this->session->userdata('admin_status'))
+        {
+            $this->load->model('model_admin');
+            $data['hotel']=$this->model_admin->gethotel();
+            $data['userdata']=$this->session->userdata;
             $this->load->view('admin_home',$data);
+        }
         else if($this->session->userdata('user_status'))
             redirect('user');
         else
@@ -56,20 +60,40 @@ class Admin extends CI_Controller {
     
     public function hotel()
     {
+        $this->load->model('model_admin');
+        $data['hotel']=$this->model_admin->gethotel();
         $data['userdata'] = $this->session->userdata;
         $this->load->view('admin_hotel',$data);
     }
     
     public function add_hotel()
     {
+        $this->load->model('model_admin');
+        $data['hotel']=$this->model_admin->gethotel();        
         $data['userdata'] = $this->session->userdata;
         $this->load->view('admin_add_hotel',$data);
     }
     
     public function input_hotel()
     {
+        $config['upload_path']   = './assets/uploads/'; 
+        $config['allowed_types'] = 'gif|jpg|png'; 
+        //$config['max_size']      = 100; 
+        //$config['max_width']     = 1024; 
+        //$config['max_height']    = 768;  
+        $this->load->library('upload', $config);
+        if(!$this->upload->do_upload('pic'))
+        {
+            $data['error']=$this->upload->display_errors();
+            $this->load->view('error',$data);
+        }
+        else
+        {
+            $upload_data = $this->upload->data(); 
+            $file_name = $upload_data['file_name'];
+        }
         $this->load->model('model_admin');
-        if($this->model_admin->add_hotel())
+        if($this->model_admin->add_hotel($file_name))
         {
             redirect('admin/add_hotel');
         }

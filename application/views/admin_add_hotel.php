@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dine Out</a>
+                    <a class="navbar-brand" href="<?php echo base_url().'admin';?>">Dine Out</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -32,11 +32,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (4)</span> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (<?php echo $hotel['size'];?>)</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Hotel 1</a></li>
-                                <li><a href="#">Hotel 2</a></li>
-                                <li><a href="#">Hotel 3</a></li>
+                                <?php $i=0;
+                                while($hotel[$i])
+                                {
+                                echo  '<li><a href="'.base_url().'admin/hotel/'.($i+1).'">'.$hotel[$i]['name'].'</a></li>';
+                                    $i++;
+                                }
+                                ?>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Add New</a></li>
                             </ul>
@@ -75,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="caption">
                             <h3>Main Info: </h3>
                             <div class="row">
-                                <form method="post" action="<?php echo base_url().'admin/input_hotel';?>">
+                                <form method="post" id="form1" action="<?php echo base_url() ?>admin/input_hotel" enctype="multipart/form-data">
                                 <div class="col-lg-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-cutlery"></span></span>
@@ -150,15 +154,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-lg-6">
                                     <div class="fileUpload btn btn-primary">
                                         <span>Upload Cover Image</span>
-                                        <input type="file" class="upload" />
+                                        <input type="file" class="upload" name="pic" />
                                     </div>
                                 </div>
                                 
                                 <div class="col-lg-6" style="text-align:right;">
-                                    <div class="fileUpload btn btn-primary">
-                                        <span>Add this hotel</span>
-                                        <input type="submit" class="upload" />
-                                    </div>
+                                        <button id="submit" class="btn btn-primary" >Add New Hotel</button>
                                 </div>
                                 </form>
                             </div>
@@ -184,6 +185,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             function initialize() {
                 var input = document.getElementById('searchTextField');
                 var autocomplete = new google.maps.places.Autocomplete(input);
+                google.maps.event.addDomListener(input, 'keydown', function(e) { 
+                if (e.keyCode == 13) { 
+                    e.preventDefault(); 
+                    }
+                });                
                 google.maps.event.addListener(autocomplete, 'place_changed', function () {
                     var place = autocomplete.getPlace();
                     document.getElementById('Loclat').value = place.geometry.location.lat();
@@ -214,6 +220,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
             });
         </script>
+        <script type="text/javascript">
+	       $(window).load(function(){
+  	         $("#submit").click(function(){
+                 $.ajax({
+                    type:"POST",
+                    url: <?php echo base_url().'admin/input_hotel';?>,
+                    data: $('#form1').serialize(),
+                    fileElementId: 'pic',	
+                    success: function(data, status){
+                        console.log(data);
+                        var obj=JSON.parse(data);
+                        },
+                   error: function(){
+                        alert("There was an error in passing....please excuse us.");
+                    }
+                });
+               });
+            });
+        </script>
+                        
 
   </body>
 </html>

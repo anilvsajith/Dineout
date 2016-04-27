@@ -5,6 +5,8 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $this->load->model('model_user');
+        $data['hotel']= $this->model_user->get_all_hotel();
         $data['userdata'] = $this->session->userdata;
         if($this->session->userdata('user_status'))
             $this->load->view('home',$data);
@@ -55,7 +57,25 @@ class User extends CI_Controller {
         }
         
     }
-
+    
+    public function find_dist()
+    {
+        
+        $this->load->model('model_user');
+        $d=$this->model_user->distance();
+        $d1=$this->model_user->sort_best($d);
+        $d2=$this->model_user->sort_dist($d);
+        $d3=$this->model_user->sort_rating($d);
+        $data['hotel_best']=$this->model_user->gethotel($d1);
+        $data['hotel_dist']=$this->model_user->gethotel($d2);
+        $data['hotel_rating']=$this->model_user->gethotel($d3);
+        $data['userdata'] = $this->session->userdata;
+        $this->load->view('search',$data);
+//        for($j=0;$j<$data['size'];$j++)
+//        {
+//            echo $data[$j]['name'].'<br>';
+//        }
+    }
     public function logout(){
         $this->session->sess_destroy();
         redirect('dineout');

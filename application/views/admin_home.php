@@ -32,11 +32,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (4)</span> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (<?php echo $hotel['size'];?>)</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Hotel 1</a></li>
-                                <li><a href="#">Hotel 2</a></li>
-                                <li><a href="#">Hotel 3</a></li>
+                                <?php $i=0;
+                                while($hotel[$i])
+                                {
+                                echo  '<li><a href="'.base_url().'admin/hotel/'.($i+1).'">'.$hotel[$i]['name'].'</a></li>';
+                                    $i++;
+                                }
+                                ?>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="<?php echo base_url();?>admin/add_hotel">Add New</a></li>
                             </ul>
@@ -61,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img src="<?php echo base_url();?>assets/img/John_Doe.jpg" height="240" class="img-circle">
                     </div>
                     <div class="col-lg-4" style="padding-top:50px;">
-                        <h4 style="font-size:45px;color:#fff;">John Doe</h4>
+                        <h4 style="font-size:45px;color:#fff;"><?php echo $userdata['admin_name'];?></h4>
                         <h6 style="font-size:25px;color:#fff;"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;Artist. Entrepreneur. Foodie.</h6>
                         <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
                     </div>
@@ -73,27 +77,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="cards container">
             <div class="row isotope">
                 
+                <?php 
+                    $i=0;
+                    while($hotel[$i])
+                    {
+                    echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="<?php echo base_url();?>admin/hotel/1">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
+                        <a href="'.base_url().'admin/hotel/'.($i+1).'">
+                        <img src="'.base_url().'assets/uploads/'.$hotel[$i]['image'].'" alt="image">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in</p>
+                            <h3>'.$hotel[$i]['name'].'</h3>
                         </div></a>
                     </div>
-                </div>
+                </div>';
+                    $i++;
+                    }
+                ?>
                 
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <a href="#">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in</p>
-                        </div></a>
-                    </div>
-                </div>
+               
                                 
             </div>    
             

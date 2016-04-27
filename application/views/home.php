@@ -31,18 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -73,14 +61,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="input-group-btn">
                             <button class="btn btn-default" aria-haspopup="true" aria-expanded="false" type="button" style="height:60px;font-size:18px;font-weight: 800;"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;&nbsp;Hotels</button>
                         </span>
-                        <form id="search" method="post" action="<?php echo base_url().'user/search'; ?>">
+                        <form id="search" method="post" action="<?php echo base_url().'user/find_dist'; ?>">
                         <select class="form-control" id="" placeholder="Time" style="height:60px;font-size:18px;font-weight: 800;width:30%;">
                             <option>Breakfast</option>
                             <option>Lunch</option>
                             <option>Dinner</option>
                             <option>Breaks</option>
                         </select>
-                        <select class="form-control" id="" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
+                        <select class="form-control" id="" name="type" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
                             <option>Veg</option>
                             <option>Non-Veg</option>
                             <option>Both</option>
@@ -92,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="hidden" id="Loclng" name="Loclng" /> 
                         </form>
                         <span class="input-group-btn">
-                            <button class="btn btn-default" form="search" type="button" style="height:60px;font-size:18px;font-weight: 800;">&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button>
+                            <button class="btn btn-default" id="submit" type="button" style="height:60px;font-size:18px;font-weight: 800;">&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button>
                         </span>
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
@@ -100,94 +88,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="cards container">
             <div class="row isotope">
-                
+       
+            <?php 
+                    $i=0;
+                    while($hotel[$i])
+                    {
+                    echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic1.jpg" alt="image">
+                        <a href="'.base_url().'admin/hotel/'.($i+1).'">
+                        <img src="'.base_url().'assets/uploads/'.$hotel[$i]['image'].'" alt="image">
                         <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
+                            <h3>'.$hotel[$i]['name'].'</h3>
+                        </div></a>
                     </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic6.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic6.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
+                </div>';
+                    $i++;
+                    }
+                ?>  
                 
             </div>    
             
@@ -203,7 +121,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/packery-mode.pkgd.min.js'></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-
+        <script>
+            $( "#submit" ).click(function() {
+                $( "#search" ).submit();
+            });
+        </script>
         <script type="text/javascript">
             function initialize() {
                 var input = document.getElementById('searchTextField');

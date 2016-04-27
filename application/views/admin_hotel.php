@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dine Out</a>
+                    <a class="navbar-brand" href="<?php echo base_url().'admin';?>">Dine Out</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -32,11 +32,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (4)</span> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (<?php echo $hotel['size'];?>)</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Hotel 1</a></li>
-                                <li><a href="#">Hotel 2</a></li>
-                                <li><a href="#">Hotel 3</a></li>
+                                <?php $i=0;
+                                while($hotel[$i])
+                                {
+                                echo  '<li><a href="'.base_url().'admin/hotel/'.($i+1).'">'.$hotel[$i]['name'].'</a></li>';
+                                    $i++;
+                                }
+                                ?>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Add New</a></li>
                             </ul>
