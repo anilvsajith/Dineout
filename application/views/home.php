@@ -29,8 +29,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/readme.rst">Read Me</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/report.pdf">Report</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="'.base_url().'admin/hotel/'.($i+1).'">
+                        <a href="'.base_url().'admin/hotel/'.$hotel[$i]['id'].'">
                         <img src="'.base_url().'assets/uploads/'.$hotel[$i]['image'].'" alt="image">
                         <div class="caption">
                             <h3>'.$hotel[$i]['name'].'</h3>

@@ -29,15 +29,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/readme.rst">Read Me</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/report.pdf">Report</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (<?php echo $hotel['size'];?>)</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <?php $i=0;
                                 while($hotel[$i])
                                 {
-                                echo  '<li><a href="'.base_url().'admin/hotel/'.($i+1).'">'.$hotel[$i]['name'].'</a></li>';
+                                echo  '<li><a href="'.base_url().'admin/hotel/'.$hotel[$i]['id'].'">'.$hotel[$i]['name'].'</a></li>';
                                     $i++;
                                 }
                                 ?>
@@ -62,9 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container">
                 <div class="row" style="padding-top:150px;">
                     <div class="col-lg-4">
-                        <h4 style="font-size:45px;color:#fff;">Pai Dosa fast food</h4>
-                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;Artist. Entrepreneur. Foodie.</h6>
-                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
+                        <h4 style="font-size:45px;color:#fff;"><?php echo $hotel_spec['name']; ?></h4>
                     </div>
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4" style="text-align:right;">
@@ -162,72 +160,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic6.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic5.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <img src="<?php echo base_url();?>assets/img/pic4.jpg" alt="image">
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
+    
+
                 
             </div>    
             

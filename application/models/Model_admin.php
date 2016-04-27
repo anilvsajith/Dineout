@@ -21,6 +21,7 @@ class Model_admin extends CI_Model {
     
     public function add_hotel($file_name)
     {
+        $defrating=3;
         
         if($this->db->insert('hotel', array('name' => $this->input->post('hotelname'),
                                              'type' => $this->input->post('hoteltype'),
@@ -33,6 +34,7 @@ class Model_admin extends CI_Model {
                                              'email' => $this->input->post('hotelemail'),
                                              'web' => $this->input->post('hotelweb'),
                                              'image' => $file_name,
+                                             'rating' => $defrating,
                                              'admin_id' => $this->session->userdata('admin_id'))))
             return true;
         return false;
@@ -53,10 +55,24 @@ class Model_admin extends CI_Model {
         foreach ($query->result() as $row){
             $data[$i]['name']=$row->name;
             $data[$i]['image']=$row->image;
+            $data[$i]['id']=$row->id;
             $i++;
         }
         $data['size']=$i;
         $data[$i]=NULL;
+        return $data;
+    }
+    
+    public function get_hotel_spec($id)
+    {
+        $query = $this->db->get_where('hotel',array('id' => $id));
+        $data= array();
+        $row= $query->row();
+        {
+            $data['name']=$row->name;
+            $data['image']=$row->image;
+            $data['id']=$row->id;
+        }
         return $data;
     }
 

@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <nav>
                                 <ul class="nav masthead-nav">
                                     <li><a href="<?php echo base_url()?>">Home</a></li>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="<?php echo base_url();?>assets/files/readme.rst">Read Me</a></li>
+                                    <li><a href="<?php echo base_url();?>assets/files/report.pdf">Report</a></li>
                                     <li class="active"><a href="#">Join Us</a></li>
                                 </ul>
                             </nav>

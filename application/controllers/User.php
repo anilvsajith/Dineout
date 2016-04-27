@@ -27,6 +27,7 @@ class User extends CI_Controller {
                 redirect('user');
     }
     
+    
     public function sign_up()
     {
         if($this->session->userdata('user_status'))

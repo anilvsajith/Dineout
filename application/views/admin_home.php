@@ -29,15 +29,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/readme.rst">Read Me</a></li>
+                        <li><a href="<?php echo base_url();?>assets/files/report.pdf">Report</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;Restaurants (<?php echo $hotel['size'];?>)</span> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <?php $i=0;
                                 while($hotel[$i])
                                 {
-                                echo  '<li><a href="'.base_url().'admin/hotel/'.($i+1).'">'.$hotel[$i]['name'].'</a></li>';
+                                echo  '<li><a href="'.base_url().'admin/hotel/'.$hotel[$i]['id'].'">'.$hotel[$i]['name'].'</a></li>';
                                     $i++;
                                 }
                                 ?>
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
         <div class="cards container">
-            <div class="row isotope">
+            <div class="row">
                 
                 <?php 
                     $i=0;
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="'.base_url().'admin/hotel/'.($i+1).'">
+                        <a href="'.base_url().'admin/hotel/'.$hotel[$i]['id'].'">
                         <img src="'.base_url().'assets/uploads/'.$hotel[$i]['image'].'" alt="image">
                         <div class="caption">
                             <h3>'.$hotel[$i]['name'].'</h3>
@@ -112,13 +112,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
         <script>
             $(document).ready( function() {  
-                $('.isotope').isotope({
-                    layoutMode: 'packery',
-                    itemSelector: '.feeds',
-                    packery: {
-                        gutter: 0
-                    }
-                });
                 $("body").niceScroll({
                     scrollspeed: 75,
                     mousescrollstep: 40,

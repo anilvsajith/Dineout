@@ -113,6 +113,7 @@ class Model_user extends CI_Model {
         foreach ($query->result() as $row){
             $data[$i]['name']=$row->name;
             $data[$i]['image']=$row->image;
+            $data[$i]['id']=$row->id;
             $i++;
         }
         $data['size']=$i;
@@ -131,7 +132,8 @@ class Model_user extends CI_Model {
             $query = $this->db->get_where('hotel',array('id' => $d[$i]['id']));
             foreach ($query->result() as $row){
                 $data[$i]['name']=$row->name;
-                $data[$i]['image']=$row->image;                
+                $data[$i]['image']=$row->image;  
+                $data[$i]['id']=$row->id;
             }
             
         }
