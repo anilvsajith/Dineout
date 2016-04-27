@@ -59,6 +59,15 @@ class User extends CI_Controller {
         
     }
     
+    public function hotel($id)
+    {
+        $this->load->model('model_admin');
+        $data['hotel']=$this->model_admin->gethotel();
+        $data['hotel_spec']=$this->model_admin->get_hotel_spec($id);
+        $data['userdata'] = $this->session->userdata;
+        $this->load->view('user_hotel',$data);
+    }
+    
     public function find_dist()
     {
         

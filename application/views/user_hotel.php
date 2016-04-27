@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
         <!--bootstrap CSS-->
         <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="<?php echo base_url();?>assets/css/home.css" rel="stylesheet">
+        <link href="<?php echo base_url();?>assets/css/userhotel.css" rel="stylesheet">
     </head>
         <body>
         <!-- Fixed navbar -->
@@ -54,58 +54,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </nav>
         <div class="topbg">
-            <div class='row' style="padding-top:150px;">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" aria-haspopup="true" aria-expanded="false" type="button" style="height:60px;font-size:18px;font-weight: 800;"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;&nbsp;Hotels</button>
-                        </span>
-                        <form id="search" method="post" action="<?php echo base_url().'user/find_dist'; ?>">
-                        <select class="form-control" id="" placeholder="Time" style="height:60px;font-size:18px;font-weight: 800;width:30%;">
-                            <option>Breakfast</option>
-                            <option>Lunch</option>
-                            <option>Dinner</option>
-                            <option>Breaks</option>
-                        </select>
-                        <select class="form-control" id="" name="type" placeholder="Veg or NonVeg" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
-                            <option>Veg</option>
-                            <option>Non-Veg</option>
-                            <option>Both</option>
-                            <option>Egg</option>
-                        </select>
-                        <input type="text" id="searchTextField" class="form-control" placeholder="Location" style="height:60px;font-size:18px;font-weight: 800;width:35%;">
-                        <input type="hidden" id="Loc" name="Loc" />     
-                        <input type="hidden" id="Loclat" name="Loclat" />
-                        <input type="hidden" id="Loclng" name="Loclng" /> 
-                        </form>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" id="submit" type="button" style="height:60px;font-size:18px;font-weight: 800;">&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            </div>  
+            <div class="container">
+                <div class="row" style="padding-top:120px;">
+                    <div class="col-lg-8">
+                        <h4 style="font-size:45px;color:#fff;">Hotel Name Abcdefg</h4>
+                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
+                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-clock-o" aria-hidden="true"></i>Opens:
+                            &nbsp;06:00&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>Closes:&nbsp;22:00</h6>
+                    </div>
+                    <div class="col-lg-4" style="text-align:right;">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false" style="margin-top:30%;height:60px;font-size:18px;font-weight: 800;">
+                                Rate Us Now!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="cards container">
             <div class="row isotope">
-       
-            <?php 
-                    $i=0;
-                    while($hotel[$i])
-                    {
-                    echo '
-                <div class="col-sm-6 col-md-3 feeds">
-                    <div class="thumbnail">
-                        <a href="'.base_url().'user/hotel/'.$hotel[$i]['id'].'">
-                        <img src="'.base_url().'assets/uploads/'.$hotel[$i]['image'].'" alt="image">
+                
+                <div class="col-sm-6 col-md-12 feeds">
+                    <div class="thumbnail" style="min-height:350px;">
                         <div class="caption">
-                            <h3>'.$hotel[$i]['name'].'</h3>
-                        </div></a>
+                            <h3>Main Info: </h3>
+                            <div class="row">
+                                
+                            </div>
+                        </div>
                     </div>
-                </div>';
-                    $i++;
-                    }
-                ?>  
+                </div>
                 
             </div>    
             
@@ -120,24 +99,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/isotope.pkgd.min.js'></script>
         <script type='text/javascript' src='<?php echo base_url();?>assets/js/packery-mode.pkgd.min.js'></script>
         <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-        <script>
-            $( "#submit" ).click(function() {
-                $( "#search" ).submit();
-            });
-        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKwGo0vPZC0HUDBMTB-FI-tHx-bc4cQ0U&libraries=places" type="text/javascript"></script>
         <script type="text/javascript">
             function initialize() {
                 var input = document.getElementById('searchTextField');
                 var autocomplete = new google.maps.places.Autocomplete(input);
+                google.maps.event.addDomListener(input, 'keydown', function(e) { 
+                if (e.keyCode == 13) { 
+                    e.preventDefault(); 
+                    }
+                });                
                 google.maps.event.addListener(autocomplete, 'place_changed', function () {
                     var place = autocomplete.getPlace();
-                    document.getElementById('Loc').value = place.name;
                     document.getElementById('Loclat').value = place.geometry.location.lat();
-                    document.getElementById('Loclng').value = place.geometry.location.lng();
-                    //alert("This function is working!");
-                    //alert(place.name);
-                    
+                    document.getElementById('Loclng').value = place.geometry.location.lng();            
                 });
             }
             google.maps.event.addDomListener(window, 'load', initialize); 
@@ -164,6 +139,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 });
             });
         </script>
+        <script type="text/javascript">
+	       $(window).load(function(){
+  	         $("#submit").click(function(){
+                 $.ajax({
+                    type:"POST",
+                    url: <?php echo base_url().'admin/input_hotel';?>,
+                    data: $('#form1').serialize(),
+                    fileElementId: 'pic',	
+                    success: function(data, status){
+                        console.log(data);
+                        var obj=JSON.parse(data);
+                        },
+                   error: function(){
+                        alert("There was an error in passing....please excuse us.");
+                    }
+                });
+               });
+            });
+        </script>
+                        
 
   </body>
 </html>
