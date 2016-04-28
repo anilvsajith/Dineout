@@ -24,11 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dine Out</a>
+                    <a class="navbar-brand" href="<?php echo base_url()?>">Dine Out</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="<?php echo base_url()?>">Home</a></li>
                         <li><a href="<?php echo base_url();?>assets/files/readme.rst">Read Me</a></li>
                         <li><a href="<?php echo base_url();?>assets/files/report.pdf">Report</a></li>
                     </ul>
@@ -57,10 +57,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container">
                 <div class="row" style="padding-top:120px;">
                     <div class="col-lg-8">
-                        <h4 style="font-size:45px;color:#fff;">Hotel Name Abcdefg</h4>
-                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Cochin, Kerala</h6>
+                        <h4 style="font-size:45px;color:#fff;"><?php echo $hotel_spec['name'];?></h4>
+                        <h6 style="font-size:25px;color:#fff;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<?php echo $hotel_spec['addr'];?></h6>
                         <h6 style="font-size:25px;color:#fff;"><i class="fa fa-clock-o" aria-hidden="true"></i>Opens:
-                            &nbsp;06:00&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>Closes:&nbsp;22:00</h6>
+                            &nbsp;<?php echo $hotel_spec['topen'];?>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i>Closes:&nbsp;<?php echo $hotel_spec['tclose'];?></h6>
                     </div>
                     <div class="col-lg-4" style="text-align:right;">
                         <div class="btn-group">

@@ -86,7 +86,7 @@
                     echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="'.base_url().'admin/hotel/'.$hotel_best[$i]['id'].'">
+                        <a href="'.base_url().'user/hotel/'.$hotel_best[$i]['id'].'">
                         <img src="'.base_url().'assets/uploads/'.$hotel_best[$i]['image'].'" alt="image">
                         <div class="caption">
                             <h3>'.$hotel_best[$i]['name'].'</h3>
@@ -106,7 +106,7 @@
                     echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="'.base_url().'admin/hotel/'.$hotel_dist[$j]['id'].'">
+                        <a href="'.base_url().'user/hotel/'.$hotel_dist[$j]['id'].'">
                         <img src="'.base_url().'assets/uploads/'.$hotel_dist[$j]['image'].'" alt="image">
                         <div class="caption">
                             <h3>'.$hotel_dist[$j]['name'].'</h3>
@@ -126,7 +126,7 @@
                     echo '
                 <div class="col-sm-6 col-md-3 feeds">
                     <div class="thumbnail">
-                        <a href="'.base_url().'admin/hotel/'.$hotel_rating[$k]['id'].'">
+                        <a href="'.base_url().'user/hotel/'.$hotel_rating[$k]['id'].'">
                         <img src="'.base_url().'assets/uploads/'.$hotel_rating[$k]['image'].'" alt="image">
                         <div class="caption">
                             <h3>'.$hotel_rating[$k]['name'].'</h3>

@@ -141,6 +141,22 @@ class Model_user extends CI_Model {
         $data[$i]=NULL;
         return $data;
     }
+    
+    public function get_hotel_spec($id)
+    {
+        $query = $this->db->get_where('hotel',array('id' => $id));
+        $data= array();
+        $row= $query->row();
+        {
+            $data['name']=$row->name;
+            $data['image']=$row->image;
+            $data['addr']=$row->address;
+            $data['topen']=$row->topen;
+            $data['tclose']=$row->tclose;
+            $data['id']=$row->id;
+        }
+        return $data;
+    }
 
 
 }
